@@ -64,11 +64,11 @@ resource "aws_security_group" "web_sg" {
 
 resource "aws_instance" "web" {
 
-  ami           = "ami-0c55b159cbfafe1f0"  # Amazon Linux 2 AMI in us-west-2
+  ami           = "ami-078264b8ba71bc45e"  # Amazon Linux 2 AMI in ap-south-1
 
   instance_type = "t2.micro"               # Free tier instance type
 
-  key_name      = aws_key_pair.deployer_key.key_name
+  key_name      = test-kyp.pem
  
   security_groups = [aws_security_group.web_sg.name] # Attach security
 
