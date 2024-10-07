@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - pip install -r requirements.txt  # Example for Python
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the project...
+      - echo Build completed on `date`
+
