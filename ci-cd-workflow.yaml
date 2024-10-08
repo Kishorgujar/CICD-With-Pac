@@ -16,9 +16,6 @@ on:
     branches:
       - main
       - scp
-  # pull_request:
-  #   branches:
-  #     - main
 defaults:
   run:
     shell: bash
@@ -42,6 +39,8 @@ jobs:
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
       - name: Install dependencies
         uses: hashicorp/setup-terraform@v2
+        with:
+          terraform-version: 1.0.0  # Specify your desired Terraform version
       - name: Terraform Init
         run: |
           echo `pwd`
@@ -82,6 +81,8 @@ jobs:
           aws-region: ${{ env.AWS_DEFAULT_REGION }}
       - name: Install dependencies
         uses: hashicorp/setup-terraform@v2
+        with:
+          terraform-version: 1.0.0  # Specify your desired Terraform version
       - name: Terraform Init
         run: |
           echo `pwd`
