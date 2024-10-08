@@ -58,7 +58,7 @@ jobs:
         run: |
           echo "** Running OPA Policy Checks**"
           terraform show -json tfplan > tfplan.json
-          opa eval --data policy.rego --input tfplan.json 'data.terraform.deny'
+         opa eval --data policy.rego --input tfplan.json 'data.terraform.deny' --pretty
       - name: Terraform Apply
         run: |
           echo "** Running Terraform Apply**"
@@ -100,7 +100,7 @@ jobs:
         run: |
           echo "** Running OPA Policy Checks**"
           terraform show -json tfplan > tfplan.json
-          opa eval --data policy.rego --input tfplan.json 'data.terraform.deny'
+         opa eval --data policy.rego --input tfplan.json 'data.terraform.deny' --pretty
       - name: Terraform Apply
         run: |
           echo "** Running Terraform Apply**"
