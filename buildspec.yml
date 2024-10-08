@@ -2,16 +2,12 @@ version: 0.2
  
 phases:
   install:
+    runtime-versions:
+      python: 3.x  # Optional, can be removed if not needed
     commands:
-      - set -e
-      - echo Installing dependencies...
-      - pip install -r requirements.txt  # Example for Python
+      - echo No dependencies to install.
   build:
     commands:
-      - echo Build started on `date`
-      - echo Building the project...
-      - echo Build completed on `date`
- 
-artifacts:
-  files:
-    - '**/*'  # Adjust this to specify which files to include as artifacts
+      - echo "Running Terraform commands..."
+      - terraform init
+      - terraform apply -auto-approve
