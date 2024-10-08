@@ -8,8 +8,17 @@ phases:
       - unzip terraform_1.5.0_linux_amd64.zip
       - sudo mv terraform /usr/local/bin/
       - terraform --version
+      - echo Installing OPA...
+      - curl -LO https://github.com/open-policy-agent/opa/releases/latest/download/opa_linux_amd64
+      - chmod +x opa_linux_amd64
+      - sudo mv opa_linux_amd64 /usr/local/bin/opa
+      - opa version
   build:
     commands:
       - echo "Running Terraform commands..."
       - terraform init
+      - terraform plan -out=tfplan
+      - echo "** Running OPA Policy Checks**"
+      - terraform show -json tfplan > tfplan.json
+      - opa eval --data policy.rego --input tfplan.json 'data.terraform.deny'
       - terraform apply -auto-approve
