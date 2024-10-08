@@ -9,6 +9,7 @@ resource "random_pet" "name" {}
 resource "aws_security_group" "web_sg" {
   name        = "allow_http_ssh"
   description = "Allow inbound HTTP and SSH traffic"
+  vpc_id = "vpc-01402a4bf417f447f"
  
   ingress {
     description = "HTTP from anywhere"
