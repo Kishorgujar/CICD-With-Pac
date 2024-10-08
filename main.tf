@@ -12,7 +12,6 @@ resource "aws_instance" "web" {
   subnet_id     = "0564d815852d0eb07"
   vpc_security_group_ids = ["sg-0e598455eeca7dd6c"]
   key_name      = "test-kyp"               # Use just the name of the key pair, without .pem
-  security_groups = [aws_security_group.web_sg.name]  # Attach security group
 }
  
 output "instance_ip" {
