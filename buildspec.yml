@@ -1,8 +1,9 @@
 version: 0.2
-
+ 
 phases:
   install:
     commands:
+      - set -e
       - echo Installing dependencies...
       - pip install -r requirements.txt  # Example for Python
   build:
@@ -10,4 +11,7 @@ phases:
       - echo Build started on `date`
       - echo Building the project...
       - echo Build completed on `date`
-
+ 
+artifacts:
+  files:
+    - '**/*'  # Adjust this to specify which files to include as artifacts
