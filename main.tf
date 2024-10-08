@@ -9,7 +9,7 @@ resource "random_pet" "name" {}
 resource "aws_instance" "web" {
   ami           = "ami-078264b8ba71bc45e"  # Check if this AMI is valid in ap-south-1
   instance_type = "t2.micro"               # Free tier instance type
-  subnet_id     = "0564d815852d0eb07"
+  subnet_id     = "subnet-0564d815852d0eb07"
   vpc_security_group_ids = ["sg-0e598455eeca7dd6c"]
   key_name      = "test-kyp"               # Use just the name of the key pair, without .pem
 }
